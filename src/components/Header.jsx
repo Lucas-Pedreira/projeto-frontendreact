@@ -14,11 +14,12 @@ function Header(props){
 
     return (
       <HeaderContainer>
+        <h1>
         <a onClick={goToHomePage}>
             Ligthyear<br/>
             Store
         </a>
-
+        </h1>
         <div>
         <input placeholder="Pesquisar"
         value={filterText}

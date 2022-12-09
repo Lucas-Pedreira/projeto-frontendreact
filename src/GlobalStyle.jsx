@@ -14,5 +14,6 @@ export const GlobalStyle = createGlobalStyle`
    #root{
     display: flex;
     flex-direction: column;
+    color: #1a1a1a;
    }
 `

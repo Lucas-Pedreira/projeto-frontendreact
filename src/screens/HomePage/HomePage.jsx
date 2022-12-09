@@ -1,6 +1,7 @@
 import Cards from "../../components/Cards"
 import Products from "../../components/Products"
 import { Main } from "./HomePage.styled"
+import { BsGithub } from "react-icons/bs"
 
 function HomePage(props){
     const {goToCartPage} = props
@@ -34,39 +35,47 @@ function HomePage(props){
   return (
     <Main>
       <section>
-        <div className="filtros">
-        <h1>Satélites</h1>
+        <div>
+        <div className="title">
+          <h1>Satélites</h1>
+        </div>
+        <hr/>
         <div className="filter-order">
-            <h4>Filtrar por preço:</h4>
-            <input placeholder="Preço min" type="number" 
-            value={props.minValue} onChange={(e) => props.setMinValue(e.target.value)}/><br/>
-            <input placeholder="Preço max" type="number" 
-            value={props.maxValue} onChange={(e) => props.setMaxValue(e.target.value)}/>
+          <div>
+          <h4>Filtrar por preço:</h4>
+          <input placeholder="Preço min" type="number"
+            value={props.minValue} onChange={(e) => props.setMinValue(e.target.value)} /><br />
+          <input placeholder="Preço max" type="number"
+            value={props.maxValue} onChange={(e) => props.setMaxValue(e.target.value)} />
+          <br />
           </div>
           <div>
-            <br/>
-            <h4>Ordernar por preço:</h4>
-            <select 
+          <h4>Ordernar por preço:</h4>
+          <select
             value={props.order}
-            onChange={(e) => {props.setOrder(e.target.value)}}>
-              <option value="cresPrice">Crescente</option>
-              <option value="decPrice">Decrescente</option>
-            </select>
+            onChange={(e) => { props.setOrder(e.target.value) } }>
+            <option value="cresPrice">Crescente</option>
+            <option value="decPrice">Decrescente</option>
+          </select>
           </div>
         </div>
-        <hr />
-        {
-          filterProducts()
+      <div className="products-cards">
+        {filterProducts()
           .map((product) => (
-            <Cards 
-            key={product.id} 
-            product={product} 
-            addCart={addCart}
-            onHomePage={true} />
-          ))
-        }
-      </section>
-
+            <Cards
+              key={product.id}
+              product={product}
+              addCart={addCart}
+              onHomePage={true} />
+          ))}
+      </div>
+      </div>
+    </section>
+    <hr />
+    <footer>
+        <h4>Desenvolvido por Lucas Pedreira</h4>
+        <span><a href="https://github.com/Lucas-Pedreira"><BsGithub /></a></span>
+      </footer>
     </Main>
     
   )

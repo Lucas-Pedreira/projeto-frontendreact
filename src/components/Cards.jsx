@@ -1,6 +1,6 @@
 import { valueDollar } from "../utils/valueDollar"
 import { CardsContainer } from "./Cards.styled"
-import { FaTrash } from "react-icons/fa"
+import { FaTrash, FaCartPlus } from "react-icons/fa"
 
 
 function Cards(props){
@@ -22,9 +22,9 @@ function Cards(props){
                 </div>
                 <div className="price-button">
                     <h4>{valueDollar.format(product.value)}</h4>
-                    {onHomePage && <button onClick={() => addCart(product)}>Adicionar ao carrinho</button>}
-                    {onCartPage && <span>Quantidade{product.quantity}</span>}
-                    {onCartPage && <button onClick={() => deleteCart(product)}><FaTrash/></button>}
+                    {onHomePage && <button onClick={() => addCart(product)}><FaCartPlus /></button>}
+                    {onCartPage && <span>Quantidade: {product.quantity}</span>}
+                    {onCartPage && <button onClick={() => deleteCart(product)}><FaTrash /></button>}
                 </div>
                 </div>
             </CardsContainer>
